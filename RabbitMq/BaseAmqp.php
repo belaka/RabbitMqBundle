@@ -146,7 +146,7 @@ abstract class BaseAmqp
                 $this->getChannel()->exchange_bind(
                     $this->exchangeOptions['name'], 
                     $this->exchangeOptions['e2ebinding'],
-                    substr($this->exchangeOptions['name'],strpos($this->exchangeOptions['name'],'.')+1)  . '.#'
+                    substr($this->exchangeOptions['name'], strpos($this->exchangeOptions['name'], '.')+1)  . '.#'
                 );
             }
         }
