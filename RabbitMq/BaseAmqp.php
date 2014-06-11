@@ -145,7 +145,7 @@ abstract class BaseAmqp
             if(isset($this->exchangeOptions['e2ebinding']) && null !== $this->exchangeOptions['e2ebinding']){
                 $this->getChannel()->exchange_bind(
                     $this->exchangeOptions['name'], 
-                    'effi.trackers', 
+                    $this->exchangeOptions['e2ebinding'], 
                     explode('.', $this->exchangeOptions['name'])[1] . '.#'
                 );
             }
