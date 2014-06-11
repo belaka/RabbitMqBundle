@@ -141,6 +141,14 @@ abstract class BaseAmqp
                 $this->exchangeOptions['ticket']);
 
             $this->exchangeDeclared = true;
+            
+            if(isset($this->exchangeOptions['e2ebinding']) && null !== $this->exchangeOptions['e2ebinding']){
+                $this->getChannel()->exchange_bind(
+                    $this->exchangeOptions['name'], 
+                    'effi.trackers', 
+                    explode('.', $this->exchangeOptions['name'])[1] . '.#'
+                );
+            }
         }
     }
 

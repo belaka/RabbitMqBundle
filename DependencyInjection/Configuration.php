@@ -218,6 +218,7 @@ class Configuration implements ConfigurationInterface
                 ->booleanNode('declare')->defaultValue(true)->end()
                 ->variableNode('arguments')->defaultNull()->end()
                 ->scalarNode('ticket')->defaultNull()->end()
+                ->scalarNode('e2ebinding')->defaultNull()->end()
             ->end()
         ;
     }
