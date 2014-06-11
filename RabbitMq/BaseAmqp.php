@@ -142,11 +142,11 @@ abstract class BaseAmqp
 
             $this->exchangeDeclared = true;
             
-            if(isset($this->exchangeOptions['e2ebinding']) && null !== $this->exchangeOptions['e2ebinding']){
+            if(isset($this->exchangeOptions['e2ebinding']) && !is_null($this->exchangeOptions['e2ebinding'])){
                 $this->getChannel()->exchange_bind(
                     $this->exchangeOptions['name'], 
-                    $this->exchangeOptions['e2ebinding'], 
-                    explode('.', $this->exchangeOptions['name'])[1] . '.#'
+                    $this->exchangeOptions['e2ebinding'],
+                    substr($this->exchangeOptions['name'],strpos($this->exchangeOptions['name'],'.')+1)  . '.#'
                 );
             }
         }
